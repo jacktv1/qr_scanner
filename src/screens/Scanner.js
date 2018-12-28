@@ -29,12 +29,6 @@ class Scanner extends Component {
     this.isScannerScreen = true;
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.scanned || nextProps.scanned === false) {
-      // this.scanned = nextProps.scanned;
-    }
-  }
-
   componentDidMount() {
     this.beepSound = new Sound(require("@assets/sounds/beep.mp3"), error => {
       if (error) {
@@ -43,16 +37,13 @@ class Scanner extends Component {
     });
 
     this._navListener = this.props.navigation.addListener("didFocus", () => {
-      console.log("scanner didFocus");
       this.scanned = false;
       this.isScannerScreen = true;
     });
 
     this._navListener2 = this.props.navigation.addListener("didBlur", () => {
-      console.log("scanner didBlur");
       this.scanned = true;
       this.isScannerScreen = false;
-      
     });
   }
 
@@ -70,7 +61,6 @@ class Scanner extends Component {
 
   // event when detect qrcode or barcode
   handleQRCodeDetect(result) {
-    console.log('this.scanned', this.scanned);
     if (result.barcodes && this.scanned === false && this.isScannerScreen === true) {
       result.barcodes.map(code => {
         var resultType = "Text";

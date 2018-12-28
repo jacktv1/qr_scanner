@@ -4,9 +4,7 @@ import {
   createMaterialTopTabNavigator
 } from "react-navigation";
 import Scanner from "../screens/Scanner";
-import Result from "../screens/Setting";
-import History from "../screens/History";
-import Main from "../screens/Main";
+import Histories from "../screens/History";
 import Tab from "../components/Tab";
 
 const AppNavigator = createMaterialTopTabNavigator(
@@ -15,11 +13,11 @@ const AppNavigator = createMaterialTopTabNavigator(
       screen: Scanner
     },
     History: {
-      screen: History
+      screen: Histories
     },
   },
   {
-    initialRouteName: "Scanner",
+    initialRouteName: "History",
     tabBarComponent: props => {
       return <Tab navigation={props.navigation} />;
     }

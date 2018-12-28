@@ -11,8 +11,9 @@ import { scanning } from "@redux/actions";
 import Icon from "../components/Icon";
 import Result from "../components/Result";
 import moment from "moment";
+import { AdMobBanner } from "react-native-admob";
 
-class History extends Component {
+class Histories extends Component {
   static navigationOptions = {
     header: null
   };
@@ -114,7 +115,7 @@ class History extends Component {
         </View>
         <View style={styles.body}>
           <Text style={styles.itemType}>{item.resultType}</Text>
-          <Text style={styles.itemContent}>{item.resultContent}</Text>
+          <Text style={styles.itemContent} numberOfLines={1}>{item.resultContent}</Text>
         </View>
         <View style={styles.right}>
           <Text style={styles.itemDate}>
@@ -136,10 +137,15 @@ class History extends Component {
   }
 
   render() {
-    console.log("groupBy", this.groupByDate(this.props.history));
     let groupHistory = Object.entries(this.groupByDate(this.props.history));
     return (
       <View style={styles.container}>
+        <AdMobBanner
+          adSize="fullBanner"
+          adUnitID="ca-app-pub-3940256099942544/6300978111"
+          testDevices={[]}
+          style={{}}
+        />
         <View style={styles.content}>
           <FlatList
             data={groupHistory.length > 0 ? groupHistory : []}
@@ -250,7 +256,8 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-  history: state.scanner.history
+  history: state.scanner.history,
+  scanner: state.scanner
 });
 
 const mapDispatchToProps = dispatch => {
@@ -262,4 +269,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(History);
+)(Histories);

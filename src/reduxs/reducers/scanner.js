@@ -2,20 +2,12 @@ import { SET_COMPANY, SCANNED, SAVE_HISTORY, SCANNING } from "../types";
 
 const initialState = {
   scanned: false,
-  company: "",
   scanType: "",
-  seri: "",
-  pin: "",
   history: []
 };
 
 const scanner = (state = initialState, action) => {
   switch (action.type) {
-    case SET_COMPANY:
-      return {
-        ...state,
-        company: action.company
-      };
     case SCANNED:
       return {
         ...state,
@@ -25,7 +17,6 @@ const scanner = (state = initialState, action) => {
         scanned: true
       };
     case SCANNING:
-      console.log('status', action.status);
       return {
         ...state,
         scanned: action.status,
@@ -34,7 +25,6 @@ const scanner = (state = initialState, action) => {
         scannedDate: ""
       };
     case SAVE_HISTORY:
-     
       const parentKey = "type";
       const { [parentKey]: parentValue, ...noChild } = action.history;
       let history = state.history;

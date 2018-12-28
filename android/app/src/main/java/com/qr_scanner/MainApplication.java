@@ -1,4 +1,4 @@
-package com.qr_scanner;
+package com.quocanh.qr_scanner;
 
 import android.app.Application;
 
@@ -12,7 +12,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
-
+import com.sbugert.rnadmob.RNAdMobPackage;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,7 +32,8 @@ public class MainApplication extends Application implements ReactApplication {
             new RNSoundPackage(),
             new RNImmediatePhoneCallPackage(),
             new RNGestureHandlerPackage(),
-            new RNCameraPackage()
+            new RNCameraPackage(),
+            new RNAdMobPackage()
       );
     }
 

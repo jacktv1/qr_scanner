@@ -4,7 +4,6 @@ import { saveHistory } from "../actions";
 
 function* scannedySaga(action) {
   try {
-    console.log('saveHistory saga', action);
     yield put(saveHistory(action));
   } catch (error) {
     yield put(registerRequestError());

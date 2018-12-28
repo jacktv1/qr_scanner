@@ -1,4 +1,4 @@
-package com.qr_scanner;
+package com.quocanh.qr_scanner;
 
 import com.facebook.react.ReactActivity;
 

@@ -11,16 +11,10 @@ import {
   ToastAndroid,
   PermissionsAndroid
 } from "react-native";
-import {
-  AdMobBanner,
-  AdMobInterstitial,
-  PublisherBanner,
-  AdMobRewarded
-} from "react-native-admob";
 
 import Icon from "./Icon";
 import RNImmediatePhoneCall from "react-native-immediate-phone-call";
-
+import { AdMobBanner } from "react-native-admob";
 export default class Result extends Component {
   constructor(props) {
     super(props);
@@ -200,6 +194,12 @@ export default class Result extends Component {
               style={{ flex: 1 }}
               onPress={() => this.props.closeModal()}
             />
+             <AdMobBanner
+                adSize="fullBanner"
+                adUnitID="ca-app-pub-3940256099942544/6300978111"
+                testDevices={[]}
+                style={{}}
+              />
             <View style={styles.header}>
               <Icon
                 name="link-variant"
@@ -223,13 +223,6 @@ export default class Result extends Component {
                 this.props.resultType,
                 this.props.resultContent
               )}
-
-              <AdMobBanner
-                adSize="fullBanner"
-                adUnitID="ca-app-pub-7829160527412867/3459928789"
-                testDevices=""
-                onAdFailedToLoad={error => console.error(error)}
-              />
             </View>
           </View>
         </Modal>
