@@ -14,10 +14,10 @@ const AppNavigator = createMaterialTopTabNavigator(
     },
     History: {
       screen: Histories
-    },
+    }
   },
   {
-    initialRouteName: "History",
+    initialRouteName: "Scanner",
     tabBarComponent: props => {
       return <Tab navigation={props.navigation} />;
     }
